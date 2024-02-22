@@ -21,8 +21,8 @@ class Game(models.Model):
     description = models.TextField()
     beginning_to_play = models.TextField()
     game_play = models.TextField()
-    extra_notes_title = models.CharField(max_length=100)
-    extra_notes_details = models.TextField()
+    extra_notes_title = models.CharField(max_length=100, blank=True)
+    extra_notes_details = models.TextField(blank=True)
 
     def __str__(self):
         return self.name
