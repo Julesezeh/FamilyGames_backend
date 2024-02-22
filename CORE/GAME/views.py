@@ -7,7 +7,11 @@ from rest_framework.response import Response
 # Create your views here.
 
 class GameViews(APIView):
-    def get(self,request):
-        
+    def get(self,request, pk=None):
+        if pk:
+            game = Game.objects.filter(pk=pk)
+            game_serializer = GameSerializer(game)
+            return Response(game_serializer.data)
         all_games = Game.objects.all() 
-        return Response(all_games)
+        game_serializer = GameSerializer(all_games,many=True)
+        return Response(game_serializer.data)
