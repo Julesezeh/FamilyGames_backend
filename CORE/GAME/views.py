@@ -8,5 +8,6 @@ from rest_framework.response import Response
 
 class GameViews(APIView):
     def get(self,request):
+        
         all_games = Game.objects.all() 
         return Response(all_games)
