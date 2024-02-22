@@ -8,7 +8,7 @@ class GameCategory(models.Model):
 
 class Game(models.Model):
     name = models.CharField(max_length=400)
-    category = models.OneToOneField(GameCategory)
+    category = models.OneToOneField(GameCategory, on_delete=models.CASCADE)
     number_of_players = models.FloatField()
     equipments = models.TextField()
     difficulty = models.IntegerField()
