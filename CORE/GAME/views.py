@@ -10,7 +10,7 @@ class GameViews(APIView):
     def get(self,request, pk=None):
         if pk is not None:
             game = get_object_or_404(Game,pk=pk)
-            print("GAME '' ", game)
+            print("GAME '': ", game)
             game_serializer = GameSerializer(game,many=False)
             return Response(game_serializer.data)
         
